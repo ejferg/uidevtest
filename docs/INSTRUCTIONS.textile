@@ -12,7 +12,7 @@ h2. Feed Data
 
 Your page should load data from the provided datafile. No content should be hard-coded into your document.
 
-uidevtest/src/js/uidevtest-data.js
+uidevtest/src/js/uidevtest-data.json
 
 h2. URLs and page rendering
 
