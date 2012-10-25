@@ -1,4 +1,4 @@
-h1. CMGdigital UI Developer test
+UI Developer test
 
 h3. What is this?
 
