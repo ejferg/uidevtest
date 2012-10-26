@@ -28,24 +28,34 @@
 <!-- Application Views -->
 <script type="text/x-handlebars">
 
-    <!-- Article List View -->
-    {{#view UDT.ArticleListView id="article-list-view"}}
+    <!-- Store List View -->
+    {{#view Udt.StoryListView id="story-list-view" storiesBinding="Udt.storiesController.content"}}
+        <h1>Stories</h1>
         <ul>
-            {{#each UDT.articlesController}}
-                <li>Article</li>
+            {{#each stories}}
+                <li>
+                <img {{bindAttr src="lead_photo_image_thumb"}} /><br/>
+                <a href="#"><span>{{title}}</span></a><br/>
+                <span>{{pub_date}}</span><br/>
+                <span>{{updated}}</span><br/>
+                <span>{{storyId}}</span><br/>
+                </li>
             {{/each}}
         </ul>
     {{/view}}
 
-    <!-- Article View -->
-    {{#view UDT.ArticleView id="article-view"}}
+    <!-- Store Item View -->
 
-    {{/view}}
+</script>
+
+<script id="story-item-view" data-template-name='story-item-view' type="text/x-handlebars">
+
 </script>
 
 <script src="js/libs/jquery-1.7.2.min.js"></script>
 <script src="js/libs/handlebars-1.0.rc.1.js"></script>
-<script src="js/libs/ember.js"></script>
+<script src="js/libs/ember-1.0.pre.js"></script>
+<script src="js/libs/ember-data-latest.js"></script>
 <script src="js/udt.js"></script>
 
 </body>

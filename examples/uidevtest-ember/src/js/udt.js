@@ -1,24 +1,26 @@
 (function (root){
     'use strict';
 
+    var Udt;
+
     /**
      * Create global object namespace for the UI Developer Test
      * application
      */
-    var UDT = Ember.Application.create({
+    root.Udt = Udt = Ember.Application.create({
         VERSION: '0.1',
-        rootElement: '#udt-app',
         ready: function(){
             this.initialize();
-            UDT.articlesController.load();
+            Udt.storiesController.load();
         }
     });
 
     /**
-     * Model for all articles. This will be
+     * Model for all Storys. This will be
      * represented in our uidevtest-data.js file
      */
-    UDT.Article = Ember.Object.extend({
+    Udt.Story = Ember.Object.extend({
+        id: null,
         author: null,
         categories_name: null,
         lead_photo_credit: null,
@@ -37,9 +39,9 @@
 
 
     /**
-     * Controller for articles within the application.
+     * Controller for Storys within the application.
      */
-    UDT.articlesController = Ember.ArrayController.create({
+    Udt.storiesController = Ember.ArrayController.create({
         content: [],
 
         /**
@@ -50,43 +52,51 @@
                 var items = [];
 
                 /**
-                 * Convert data to an array of Article objects.
+                 * Convert data to an array of Story objects.
                  */
                 $.each(data.objects, function(key, value){
-                    items.push(UDT.Article.create(value));
+                    //this.pushObject(Udt.create(value));
+                    items.push(Udt.Story.create(value));
                 });
 
                 /**
                  * Set content value for the controller to be used
-                 * by the articleController for binding.
+                 * by the StoryController for binding.
                  */
 
-                UDT.articlesController.set('content', items);
+               Udt.storiesController.set('content', items);
             });
         }
     });
 
 
     /**
-     * Full view of an article after it is clicked
+     * Full view of an Story after it is clicked
      * in the list view.
      */
-    UDT.ArticleView = Ember.View.extend({
+    Udt.StoryView = Ember.View.extend({
 
     });
-
 
     /**
-     * View that displays a list of articles.
-     * This is the main view for the application.
+     * The render items for each story in the
+     * Story List View.
      */
-    UDT.ArticleListView = Ember.View.extend({
-
+    Udt.StoryItemView = Ember.View.extend({
+        tagName: 'div'
     });
 
-    var articleListView = UDT.ArticleListView.create();
-    articleListView.appendTo('#udt-app');
-
-    root.UDT = UDT;
+    /**
+     * View that displays a list of Storys.
+     * This is the main view for the application.
+     */
+    Udt.StoryListView = Ember.View.extend({
+        storiesBinding: "Udt.storiesController",
+        changeStory: function(){
+            console.log('change story');
+        }
+       // tagName: 'ul'
+       // itemViewClass: 'Udt.StoryItemView',
+    })
 
 })(window);
