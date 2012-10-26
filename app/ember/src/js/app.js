@@ -97,7 +97,7 @@
     });
 
     /**
-     * View that displays a list of Storys.
+     * View that displays a list of Stories.
      * This is the main view for the application.
      */
     App.StoryListView = Ember.View.extend({

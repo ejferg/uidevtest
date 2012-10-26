@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="../css/uidevtest.css">
     <script src="../js/libs/modernizr-2.6.2.min.js"></script>
 </head>
@@ -21,13 +22,13 @@
 <![endif]-->
 
 <div id="application">
-    <div id="views"></div>
+    <div id="views" class="container"></div>
 </div>
 
 <!-- Story List View -->
 
 <script id="story-list-view" data-template-name="story-list-view" type="text/x-handlebars">
-        <ul>
+        <ul class="thumbnails">
             {{#if App.storiesController.isLoaded}}
                 {{#each story in App.storiesController}}
                     {{view App.StoryItemView storyBinding="story"}}
@@ -41,13 +42,25 @@
 
 <script id="story-item-view" data-template-name='story-item-view' type="text/x-handlebars">
     {{#with story}}
-        <li>
-            <a href="#" {{action "itemClick" target "parentView" on="click"}}><img {{bindAttr src="lead_photo_image_thumb"}} /></a><br/>
-            <a href="#" {{action "itemClick" target "parentView"}}>{{title}}</a><br/>
-            <span>{{categoryContent story.category}}</span>
-            <span>{{pub_date}}</span><br/>
-            <span>{{updated}}</span><br/>
-            <span>{{storyId}}</span><br/>
+        <li class="span4 story-list">
+            <div class="thumbnail">
+                <a href="#" {{action "itemClick" target "parentView" on="click"}}>
+                    <img {{bindAttr src="lead_photo_image_thumb" title="lead_photo_caption" alt="lead_photo_caption"}} class="list-img" />
+                </a>
+                <div class="caption">
+                    <a href="#" {{action "itemClick" target "parentView"}}>
+                        <h4>{{title}}</h4>
+                    </a>
+                    <h5>{{categoryContent story.category}}</h5>
+                    <p class="story-date">
+                        <span>Published: {{pub_date}}</span><br/>
+                        <span>Updated: {{updated}}</span>
+                    </p>
+                    <p>
+                        <a href="#" {{action "itemClick" target "parentView"}} class="btn">Read More</a>
+                    </p>
+                </div>
+            </div>
         </li>
     {{/with}}
 </script>
@@ -57,12 +70,51 @@
 
 <script id="story-view" data-template-name='story-view' type="text/x-handlebars">
     {{#with App.storyController.selectedStory}}
-        <h1>{{title}}</h1>
-        <img {{bindAttr src="lead_photo_image_url"}} />
-        <span>{{lead_photo_credit}}</span>
-        <span>Updated: {{updated}} | Published: {{pub_data}}</span>
+        <div class="row">
+            <div class="span9">
+                <h1>{{title}}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span8 story-date">
+                <p>Updated: {{updated}} | Published: {{pub_date}}</p>
+            </div>
+        </div>
+
+        <div class="story-action-bar">
+            <ul>
+                <li>
+                    <span class="icon comment"></span>
+                    <a href="#">Comment</a>
+                </li>
+                <li>
+                    <span class="icon share"></span>
+                    <a href="#">Share</a>
+                </li>
+                <li>
+                    <span class="icon favorite"></span>
+                    <a href="#">Favorite</a>
+                </li>
+                <li>
+                    <span class="icon vote"></span>
+                    <a href="#">Vote</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="feat-img span2">
+                <img {{bindAttr src="lead_photo_image_url"}} />
+            </div>
+
+            <div>
+                <span>{{lead_photo_credit}}</span>
+            </div>
+        </div>
+
         <span>by {{authorContent}}</span>
-        <div>{{storyContent}}</div>
+        <div class="story-content">{{storyContent}}</div>
     {{/with}}
 </script>
 
