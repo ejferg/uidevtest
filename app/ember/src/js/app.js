@@ -24,6 +24,22 @@
         }
     });
 
+    /**
+     * Parse uri query string parameters
+     * @param name
+     * @return {String}
+     */
+    App.getQueryParam =  function(name)
+    {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regexS = "[\\?&]" + name + "=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.search);
+        if(results == null)
+            return "";
+        else
+            return decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
 
     /**
      * Model for all Storys. This will be
@@ -54,6 +70,7 @@
     App.storiesController = Ember.ArrayController.create({
 
         content: [],
+        initialData: {},
 
         /**
          * Load application data.
@@ -68,11 +85,18 @@
                     value.pub_date = moment(value.pub_date).format('h:mm a dddd, MMM, D, YYYY');
                     value.updated = moment(value.updated).format('h:mm a dddd, MMM, D, YYYY');
 
+                    if(value.id == this.initialData.storyId)
+                        History.pushState(value, "Story::"+this.initialData.storyId,
+                                            "?story="+this.initialData.storyId);
+
                     this.pushObject(App.Story.create(value));
                 }, this));
 
                 this.set('isLoaded', true);
             },this));
+
+           // if(story)
+               // History.pushState(story, "Story::"+story.id, "?story="+story.id);
         }
     });
 
@@ -123,7 +147,12 @@
      */
     App.StoryView = Ember.View.extend({
 
-        templateName: "story-view"
+        templateName: "story-view",
+
+        //Navigate back to home.
+        homeClick: function(){;
+            History.pushState(null, "Home", "index.html");
+        }
 
     });
 
@@ -154,9 +183,18 @@
             App.stateManager.goToState('story');
             App.storyController.set('selectedStory', state.data);
         } else {
-            App.stateManager.goToState('list');
+            var storyId = App.getQueryParam('story');
+
+            if(storyId){
+                App.storiesController.set('initialData', {storyId: storyId});
+
+            } else {
+                 App.stateManager.goToState('list');
+            }
         }
     };
+
+
     /**
      * Handler for application stateChange event.
      */
@@ -168,17 +206,19 @@
        // console.log('statechange:', State.data, State.title, State.url);
     });
 
-
+    // Filter for category content.
     Handlebars.registerHelper('categoryContent', function() {
         var content = this.categories_name.join(' / ').toString();
         return content;
     });
 
+    // Filter for author content.
     Handlebars.registerHelper('authorContent', function(story) {
         var author = this.author.toString();
         return author;
     });
 
+    // Filter for story content.
     Handlebars.registerHelper('storyContent', function() {
         return new Handlebars.SafeString(this.story);
     });

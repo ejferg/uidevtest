@@ -21,7 +21,10 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
+<!-- Application View -->
 <div id="application">
+
+    <!-- Views container -->
     <div id="views" class="container"></div>
 </div>
 
@@ -70,6 +73,17 @@
 
 <script id="story-view" data-template-name='story-view' type="text/x-handlebars">
     {{#with App.storyController.selectedStory}}
+
+    <!-- begin breadcrumb -->
+    <div class="row">
+        <ul class="breadcrumb">
+            <li><a href="#" {{action homeClick}}>HOME</a> <span class="divider">&gt;</span></li>
+            <li><a href="#">NEWS</a></li>
+        </ul>
+    </div>
+    <!-- end breadcrumb -->
+
+    <div class="row">
         <div class="row">
             <div class="span9">
                 <h1>{{title}}</h1>
@@ -82,48 +96,59 @@
             </div>
         </div>
 
-        <div class="story-action-bar">
-            <ul>
-                <li>
-                    <span class="icon comment"></span>
-                    <a href="#">Comment</a>
-                </li>
-                <li>
-                    <span class="icon share"></span>
-                    <a href="#">Share</a>
-                </li>
-                <li>
-                    <span class="icon favorite"></span>
-                    <a href="#">Favorite</a>
-                </li>
-                <li>
-                    <span class="icon vote"></span>
-                    <a href="#">Vote</a>
-                </li>
-            </ul>
-        </div>
-
+        <!-- begin social bar -->
         <div class="row">
-            <div class="feat-img span2">
-                <img {{bindAttr src="lead_photo_image_url"}} />
-            </div>
-
-            <div>
-                <span>{{lead_photo_credit}}</span>
+            <div class="story-social-bar">
+                <ul>
+                    <li>
+                        <a href="#" class="comment">Comment</a>
+                    </li>
+                    <li>
+                        <a href="#" class="share">Share</a>
+                    </li>
+                    <li>
+                        <a href="#" class="favorite">Favorite</a>
+                    </li>
+                    <li>
+                        <a href="#" class="vote">Vote</a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <!-- end social bar -->
 
-        <span>by {{authorContent}}</span>
-        <div class="story-content">{{storyContent}}</div>
+        <!-- begin story content -->
+        <div class="row">
+
+            <div class="span3">
+                    <img class="story-feature-img" {{bindAttr src="lead_photo_image_url"}} />
+
+                    <div class="story-credit">
+                        <span>{{lead_photo_credit}}</span>
+                    </div>
+            </div>
+
+            <div class="row span8">
+                <div class="story-author">By <span>{{authorContent}}</span></div>
+                <div class="story-content">{{storyContent}}</div>
+            </div>
+
+        </div>
+        <!-- end story content -->
+
+    </div>
     {{/with}}
 </script>
 
+<!-- Third party scripts -->
 <script src="../js/libs/jquery-1.7.2.min.js"></script>
 <script src="../js/libs/jquery.history.js"></script>
 <script src="../js/libs/handlebars-1.0.rc.1.js"></script>
 <script src="../js/libs/moment.min.js"></script>
 <script src="../js/libs/ember-1.0.pre.js"></script>
 <script src="../js/libs/ember-data-latest.js"></script>
+
+<!-- Application script -->
 <script src="../js/app.js"></script>
 
 </body>

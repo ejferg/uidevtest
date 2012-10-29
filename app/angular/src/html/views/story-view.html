@@ -1,0 +1,67 @@
+<!-- begin breadcrumb -->
+
+<div class="row" ng-controller="StoryController">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li><a href="#" ng-click="homeClick()">HOME</a> <span class="divider">&gt;</span></li>
+            <li><a href="#">NEWS</a></li>
+        </ul>
+    </div>
+
+<!-- end breadcrumb -->
+
+<div class="row">
+    <div class="row">
+        <div class="span9">
+            <h1>{{selectedStory.title}}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span8 story-date">
+            <p>Updated: {{selectedStory.updated}} | Published: {{selectedStory.pub_date}}</p>
+        </div>
+    </div>
+
+    <!-- begin social bar -->
+    <div class="row">
+        <div class="story-social-bar">
+            <ul>
+                <li>
+                    <a href="#" class="comment">Comment</a>
+                </li>
+                <li>
+                    <a href="#" class="share">Share</a>
+                </li>
+                <li>
+                    <a href="#" class="favorite">Favorite</a>
+                </li>
+                <li>
+                    <a href="#" class="vote">Vote</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end social bar -->
+
+    <!-- begin story content -->
+    <div class="row">
+
+        <div class="span3">
+            <img class="story-feature-img" ng-src="{{selectedStory.lead_photo_image_url}}" />
+
+            <div class="story-credit">
+                <span>{{selectedStory.lead_photo_credit}}</span>
+            </div>
+        </div>
+
+        <div class="row span8">
+            <div class="story-author">By <span>{{selectedStory.author|authorFilter}}</span></div>
+            <div class="story-content" ng-bind-html-unsafe="selectedStory.story"></div>
+        </div>
+
+    </div>
+    <!-- end story content -->
+
+    </div>
+</div>

@@ -1,5 +1,6 @@
 {
     "objects": [{
+        "id": "sto01",
         "author": ["Gail Williford"],
         "categories_name": ["Local","Watersports"],
         "lead_photo_caption": "Jetski Accident",
@@ -15,6 +16,7 @@
         "updated": "2012-09-04T12:02:26-07:00",
         "url_path": "/news/news/local/san-jose-family-injured-lake-tahoe-jetski-accident/nR3LG/"
     }, {
+        "id": "sto02",
         "author": ["Jennifer Warner, Reviewed by Louise Chang, MD"],
         "categories_name": ["Health"],
         "lead_photo_caption": "Cilantro",
@@ -30,6 +32,7 @@
         "updated": "2012-09-04T12:00:00-07:00",
         "url_path": "/news/lifestyles/health/tiny-microgreens-packed-nutrients/nR2yW/"
     }, {
+        "id": "sto03",
         "author": ["KTVU And AP Wires"],
         "categories_name": ["Local"],
         "lead_photo_caption": "Sinkhole at School",
@@ -45,6 +48,7 @@
         "updated": "2012-09-04T11:50:04-07:00",
         "url_path": "/news/news/local/sf-school-shutdown-massive-water-main-break-reopen/nR3K2/"
     }, {
+        "id": "sto04",
         "author": ["KTVU And AP Wires"],
         "categories_name": ["Local"],
         "lead_photo_caption": null,
@@ -60,6 +64,7 @@
         "updated": "2012-09-04T11:34:55-07:00",
         "url_path": "/news/news/local/cal-state-faculty-approve-4-year-contract/nR3KW/"
     }, {
+        "id": "sto05",
         "author": ["Larry Walls"],
         "categories_name": ["Local","Safety"],
         "lead_photo_caption": "California Wildfire Helicopter",

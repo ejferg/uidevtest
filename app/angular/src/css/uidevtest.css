@@ -1,0 +1,180 @@
+/*******************************************
+    General Content
+*******************************************/
+a
+{
+   color: #036dbe;
+}
+
+.breadcrumb
+{
+    color: #036dbe;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-top-style: solid;
+    border-top-color: #cdcdcd;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-style: solid;
+    border-bottom-color: #cdcdcd;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.story-date
+{
+    font-size: 11px;
+    color: #444444;
+}
+
+
+/*****************************************
+    Story List View
+******************************************/
+.story-list
+{
+    margin-top: 30px;
+}
+
+.thumbnail h5
+{
+    color: #444444;
+}
+
+.list-img
+{
+    width: 100%;
+    height: auto;
+}
+
+/*****************************************
+    Story View
+******************************************/
+.story {}
+
+.story h1
+{
+    font-size: 24px;
+    color: #444444;
+}
+
+.story-feature-img
+{
+    border: #000000;
+    border-style: solid;
+}
+
+.story-credit
+{
+    position: relative;
+    top: -26px;
+    opacity: 0.6;
+    padding: 2px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* Begin social bar (comment, share, favortie, vote) */
+.story-social-bar
+{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.story-social-bar ul li
+{
+    display: inline;
+    height: 25px;
+    padding-right: 10px;
+    margin: 1px 0px 0 0px;
+    min-width: 100px;
+    float: left;
+}
+
+.story-social-bar ul li p
+{
+    text-align: center;
+}
+
+.story-social-bar a
+{
+    display: block;
+    background: url('../images/uidevtest-sprites.png') no-repeat;
+    padding-bottom: 2px;
+    padding-left: 18px;
+
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+
+.story-social-bar a:hover
+{
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+
+
+.comment
+{
+    background-position: -3px -5px;
+    width: 0px;
+    height: 13px;
+}
+
+.share
+{
+    background-position: -22px -2px;
+    width: 0px;
+    height: 16px;
+}
+
+.favorite
+{
+    background-position: -42px -4px;
+    width: 16px;
+    height: 15px;
+}
+
+.vote
+{
+    background-position: -63px -4px;
+    width: 15px;
+    height: 14px;
+}
+
+/* End social bar (comment, share, favortie, vote) */
+
+
+/* Begin story content */
+.story-content
+{
+    color: #444444;
+    font-size: 14px;
+    line-height:  18px;
+    padding-top: 10px;
+}
+
+.story-content p
+{
+    float: left;
+    width: 260px;
+    padding-left: 15px;
+}
+
+.story-author
+{
+    padding-left: 15px;
+}
+
+.story-author span
+{
+    color: #036dbe;;
+    font-weight: bold;
+}
+/* End story content */
