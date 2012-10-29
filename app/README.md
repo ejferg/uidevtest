@@ -10,7 +10,7 @@ versions. I may decide to add test to each of the applications using Jasmine.
 In development I used a localhost server to test. So some type of server will be needed to test due to security problems
 when loading the uidevtest-data.js using ajax.
 
-Ex. http://example.com//uidevtest/app/ember/src/html/index.html
+Ex. http://example.com//uidevtest/app/ember/src/html/index.html <br />
     http://localhost//uidevtest/app/ember/src/html/index.html
 
 ## Misc
