@@ -78,6 +78,8 @@ a
     background-color: #ffffff;
 }
 
+
+
 /* Begin social bar (comment, share, favortie, vote) */
 .story-social-bar
 {
@@ -178,3 +180,65 @@ a
     font-weight: bold;
 }
 /* End story content */
+
+
+@media screen and (max-width: 480px)
+{
+    .story-credit
+    {
+        position: relative;
+        top: -26px;
+        opacity: 0.6;
+        padding: 2px;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff;
+        background-color: #898989;
+    }
+
+    .story-social-bar a
+    {
+        display: block;
+        background: url('../images/uidevtest-sprites.png') no-repeat;
+        padding-bottom: 2px;
+        padding-left: 18px;
+
+        filter: none;
+        -webkit-filter: grayscale(0%);
+    }
+
+    .story-social-bar a:hover
+    {
+        filter: none;
+        -webkit-filter: grayscale(0%);
+    }
+
+
+    .comment
+    {
+        background-position: -3px -5px;
+        width: 0px;
+        height: 13px;
+    }
+
+    .share
+    {
+        background-position: -22px -2px;
+        width: 0px;
+        height: 16px;
+    }
+
+    .favorite
+    {
+        background-position: -42px -4px;
+        width: 16px;
+        height: 15px;
+    }
+
+    .vote
+    {
+        background-position: -63px -4px;
+        width: 15px;
+        height: 14px;
+    }
+}
